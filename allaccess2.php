@@ -1,4 +1,5 @@
 <?php $conn = mysqli_connect("localhost","username","pass","dbname"); 
+ 
 include 'connect.php';
 if (!$conn){
     die("Database Connection Failed" . mysqli_error($connection));
@@ -15,9 +16,46 @@ $userid=$_SESSION['contactid'];
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	  
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="http://www.arfeenkhan.com/coachstat/css/jquery-ui.js"></script>
  	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/menu.css">
+	<script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          //defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        //defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+  </script>
 	<style>
 	    .btn {
     margin: 0% 0!important;
@@ -119,12 +157,18 @@ $datas1=mysqli_query($connection, "SELECT * FROM `login` WHERE `v_id`=$userid ")
 	<div class="container second_box" style="border:none!important;">
 	     
 		  <div class="row">
-			<div class="col-sm-3" >
-				<!-- <p>Date:</p> --><div style="margin-top:2%;">
- 				  <input type="date" name="masterdate" id="txtDate"  value="" style="width: 100%;border: 1px solid #1db8f3!important;border-radius: 5px!important;    padding: 5px 2px;">
+			<div class="col-sm-3" style="display: inline-flex!important;" >
+				 <p style="font-size: 15px;     padding-top: 6%;"> From:</p><div style="margin-top:2%;">
+				     <input type="text" id="from" name="from"   style="width: 100%;border: 1px solid #1db8f3!important;border-radius: 5px!important;    padding: 5px 2px;">
+ 				  <!--<input type="date" name="masterdate" id="txtDate"  value="" style="width: 100%;border: 1px solid #1db8f3!important;border-radius: 5px!important;    padding: 5px 2px;">-->
 				 </div>
 			</div>
-		
+		<div class="col-sm-3" style="display: inline-flex!important;" >
+				 <p style="font-size: 15px;    padding-top: 6%;"> To:</p><div style="margin-top:2%;">
+				     <input type="text" id="to" name="to" style="width: 100%;border: 1px solid #1db8f3!important;border-radius: 5px!important;    padding: 5px 2px;">
+ 				  <!--<input type="date" name="mastertodate" id="txtDate1"  value="" style="width: 100%;border: 1px solid #1db8f3!important;border-radius: 5px!important;    padding: 5px 2px;">-->
+				 </div>
+			</div>
 			<div class="col-sm-3 " style="">
 			    	 <div class="button-group">
                         <button type="button" class="name_select  btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><p id="cc">city <span class="caret"></span></p></button>
@@ -230,9 +274,6 @@ $datas1=mysqli_query($connection, "SELECT * FROM `login` WHERE `v_id`=$userid ")
 
 </body>
 <script>
-  
-    
-    
 var options = [];
 
 $( '.dropdown-menu a' ).on( 'click', function( event ) {
@@ -259,8 +300,10 @@ $( '.dropdown-menu a' ).on( 'click', function( event ) {
 </script>
 <script>
 $("#sub").click(function(){
-     var inputDate =document.getElementById("txtDate").value;
+     var inputDate =document.getElementById("from").value;
      //alert(inputDate);
+     var inputDate1 =document.getElementById("to").value;
+     //alert(inputDate1);
 //   //  var mycity =document.getElementsByName("mycity").value;
     var all_location = document.querySelectorAll('input[name="location[]"]:checked');
     var aIds = [];
@@ -289,7 +332,7 @@ $("#sub").click(function(){
     $.ajax({
       type: 'POST',
       url: 'alldata2.php',
-      data: ({inputDate:inputDate,str:str,name:name}),
+      data: ({inputDate:inputDate,inputDate1:inputDate1,str:str,name:name}),
       success: function(data){
          //alert(data);
          $('#selecteddate11').html(data);
