@@ -1,4 +1,4 @@
-<?php $conn = mysqli_connect("localhost","worldsuc_assign","asdf1234","worldsuc_stats"); 
+<?php $conn = mysqli_connect("localhost","username","pass","worldsuc_stats"); 
 include 'connect.php';
 if (!$conn){
     die("Database Connection Failed" . mysqli_error($connection));
