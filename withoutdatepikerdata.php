@@ -1,5 +1,5 @@
 <?php
- $conn = mysqli_connect("localhost","worldsuc_assign","asdf1234","worldsuc_stats"); 
+ $conn = mysqli_connect("localhost","username","passs","worldsuc_stats"); 
 session_start();
 $userid=$_SESSION['contactid'];
 
