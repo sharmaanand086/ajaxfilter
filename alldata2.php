@@ -1,5 +1,6 @@
 <?php
  $conn =mysqli_connect("localhost","username","pass","dbname"); 
+ 
 session_start();
 $userid=$_SESSION['contactid'];
 
@@ -13,6 +14,7 @@ if (!$conn){
 
 // $t= $_POST['seltable'];
  $d1 = $_POST['inputDate'];
+ $d12 = $_POST['inputDate1'];
  $name=$_SESSION['name'];
  $query = "";
  $query .= "SELECT * FROM `speakers` WHERE ";
@@ -24,7 +26,7 @@ if (!$conn){
   }else {
       $check =1;
       $upcheck =1;
-      $query .= "speakerdate='$d1'";
+      $query .= "speakerdate BETWEEN '$d1' AND '$d12'";
   }  
   
  if(isset($_POST['str'])){
@@ -82,7 +84,7 @@ if (!$conn){
 // }
  
  //$query .= "fname='$n' AND city ='$c' AND masterdate='$d'";
- echo $query;
+// echo $query;
   $result = mysqli_query($conn,$query);
 ?>	 
        
