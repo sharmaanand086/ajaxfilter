@@ -1,0 +1,49 @@
+body{
+background: #000;
+color: #1bafc8;
+}
+
+.mains{
+   width: 60%;
+margin-left: 20%;
+margin-top: 5%;
+}
+#inputName{
+		background: transparent;
+color: #1bafc8;
+border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+border-bottom: 2px solid;
+}
+#inputEmail{
+	background: transparent;
+color: #1bafc8;
+border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+border-bottom: 2px solid;
+}
+#inputContact{
+		background: transparent;
+color: #1bafc8;
+border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+border-bottom: 2px solid;
+}
+#select{
+		background: transparent;
+color: #1bafc8;
+border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+border-bottom: 2px solid;
+}
+body{
+
+}

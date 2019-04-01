@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://demo.webslesson.info/advance-product-filter/style.css">
+    <title>Product filter in php</title>
+    </head>
+
+<body>
+<!-- Page Content -->
+    <div class="container">
+        <div class="row">
+         <br />
+         <h2 align="center">Advance Ajax Product Filters in PHP</h2>
+         <br />
+
+ <div class="col-md-3">                    
+    <div class="list-group">
+     <h3>Price</h3>
+     <input type="hidden" id="hidden_minimum_price" value="0" />
+                    <input type="hidden" id="hidden_maximum_price" value="65000" />
+                    <p id="price_show">1000 - 65000</p>
+                    <div id="price_range"></div>
+                </div>    
+    <div class="list-group">
+			<h3>Brand</h3>
+        <div style=" overflow-y: auto; overflow-x: hidden;">      
+        <div class="list-group-item checkbox">
+            <label><input type="checkbox" class="common_selector brand" value=""  >  </label>
+        </div>                     
+        </div>
+    </div>
+
+    <div class="list-group">
+     <h3>RAM</h3> 
+        <div class="list-group-item checkbox">
+            <label><input type="checkbox" class="common_selector ram" value="" >   GB</label>
+        </div>      
+    </div>
+    
+    <div class="list-group">
+     <h3>Internal Storage</h3>      
+        <div class="list-group-item checkbox">
+            <label><input type="checkbox" class="common_selector storage" value=""  >   GB</label>
+        </div>                    
+     </div>
+ </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
